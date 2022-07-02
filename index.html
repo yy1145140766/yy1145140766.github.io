@@ -20,7 +20,10 @@
             } else {
                 url = "/homepage/index.html";
             }
-            window.location.href = window.location.origin + url;
+            window.location.href = window.location.origin
+                + url
+                + window.location.search
+                + window.location.hash;
         }
     </script>
 </body>
