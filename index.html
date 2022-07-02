@@ -11,19 +11,10 @@
 </head>
 
 <body>
+    <script type="text/javascript" src="/main.js"></script>
     <script type="text/javascript">
         window.onload = function () {
-            var search = new URLSearchParams(window.location.search);
-            var url;
-            if (search.has("movecar")) {
-                url = "/movecar/index.html";
-            } else {
-                url = "/homepage/index.html";
-            }
-            window.location.href = window.location.origin
-                + url
-                + window.location.search
-                + window.location.hash;
+            mainLoad();
         }
     </script>
 </body>
