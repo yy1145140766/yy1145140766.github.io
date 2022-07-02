@@ -1,4 +1,13 @@
+import { setErrorHandler } from "./utils/utils";
+
 window.mainLoad = function () {
+    setErrorHandler((from, arg) => {
+        localStorage.setItem("error", `${from}\n${JSON.stringify(arg, null, 4)}`);
+    });
+    jumpBySearch();
+};
+
+window.jumpBySearch = function () {
     var search = new URLSearchParams(window.location.search);
     if (search.has("movecar")) {
         gotoMoveCar();
