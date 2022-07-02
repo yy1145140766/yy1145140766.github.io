@@ -16,5 +16,5 @@ window.phoneCall = function () {
             phoneNumber = kv[0].key;
         }
     }
-    window.location.href = "tel://" + phoneNumber;
+    window.location.href = "tel:" + phoneNumber;
 };

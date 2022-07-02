@@ -9,7 +9,7 @@ window.mainLoad = function () {
 
 window.gotoPage = function (page) {
     window.location.href = window.location.origin
-        + "/" + page + "index.html"
+        + "/" + page + "/index.html"
         + window.location.search
         + window.location.hash;
 };
