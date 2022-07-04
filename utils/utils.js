@@ -1,3 +1,7 @@
+var defaultHandleError = function (from, arg) {
+    alert(`${from}\n${JSON.stringify(arg, null, 4)}`);
+};
+
 export function setErrorHandler(handler) {
     window.onerror = function (event, source, lineno, colno, error) {
         var arg = { message: event, url: source, line: lineno, column: colno, error: error };
@@ -21,8 +25,4 @@ export function setErrorHandler(handler) {
             defaultHandleError("unhandledrejection", event);
         }
     });
-};
-
-defaultHandleError = function (from, arg) {
-    alert(`${from}\n${JSON.stringify(arg, null, 4)}`);
 };

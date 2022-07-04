@@ -1,11 +1,6 @@
-import { setErrorHandler } from "./utils/utils";
+import { setErrorHandler } from "../utils/utils.js";
 
-window.mainLoad = function () {
-    setErrorHandler();
-    phoneCall();
-};
-
-window.phoneCall = function () {
+var phoneCall = function () {
     var phoneNumber = "18328425477";
     var search = new URLSearchParams(window.location.search);
     if (search.has("movecar")) {
@@ -20,4 +15,9 @@ window.phoneCall = function () {
         }
     }
     window.location.href = "tel:" + phoneNumber;
+};
+
+window.mainLoad = function () {
+    setErrorHandler();
+    phoneCall();
 };

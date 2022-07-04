@@ -1,13 +1,6 @@
-import { setErrorHandler } from "./utils/utils";
+import { setErrorHandler } from "./utils/utils.js";
 
-window.mainLoad = function () {
-    setErrorHandler((from, arg) => {
-        localStorage.setItem("error", `${from}\n${JSON.stringify(arg, null, 4)}`);
-    });
-    jumpBySearch();
-};
-
-window.jumpBySearch = function () {
+var jumpBySearch = function () {
     var search = new URLSearchParams(window.location.search);
     if (search.has("movecar")) {
         gotoMoveCar();
@@ -16,17 +9,29 @@ window.jumpBySearch = function () {
     }
 };
 
-window.gotoPage = function (page) {
+var gotoPage = function (page) {
     window.location.href = window.location.origin
         + "/" + page + "/index.html"
         + window.location.search
         + window.location.hash;
 };
 
-window.gotoHomePage = function () {
+var gotoHomePage = function () {
     gotoPage("homepage");
 };
 
-window.gotoMoveCar = function () {
+var gotoErrorPage = function () {
+    gotoPage("error");
+};
+
+var gotoMoveCar = function () {
     gotoPage("movecar");
-}
+};
+
+window.mainLoad = function () {
+    setErrorHandler((from, arg) => {
+        localStorage.setItem("error", `${from}\n${JSON.stringify(arg, null, 4)}`);
+        gotoErrorPage();
+    });
+    jumpBySearch();
+};
